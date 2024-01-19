@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,11 +23,23 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+
     public function index()
     {
-        return view('home');
+        $products = Product::all();
+        // Pass the converted price and selected currency to the view
+        return view('home', compact('products'));
     }
     public function languageDemo(){
         return view('languageDemo');
     }
+
+    public function convert(){
+        $products = Product::all();
+        // Pass the converted price and selected currency to the view
+        return view('convert', compact('products'));
+    }
+
+
 }

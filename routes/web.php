@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CurrencyController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -25,8 +26,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/languageDemo', 'App\Http\Controllers\HomeController@languageDemo');
-// Route::get('/languageDemo', HomeController::class,'languageDemo');
 
+Route::post('currency_load',[CurrencyController::class,'currencyload'])->name('currency.load');
+Route::get('products',[HomeController::class,'convert'])->name('products');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
