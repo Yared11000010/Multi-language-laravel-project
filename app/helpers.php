@@ -8,7 +8,7 @@ class Helpers {
 
     public static function currency_load() {
         if (session()->has('system_default_currency_info') == false) {
-            session()->put('system_default_currency_info',Currencies::find(2));
+            session()->put('system_default_currency_info',Currencies::find(1));
         }
     }
     public static function currency_converter($amount){
